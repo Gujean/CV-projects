@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html,body{
+	margin:0;
+	padding:0;
+	height:100%;
+    width:100%;
+}
+.intro{
+	height:100%;
+	width:100%;
+	margin:auto;
+	background: url("masaj.jpg");
+	display:table;
+	top:0;
+	background-size: cover;
+	text-align: center;
+}
+.inner{
+	display:table-cell;
+	vertical-align: middle;
+	width: 100%;
+	max-width: none;
+}
+.content{
+	max-width: 500px;
+	margin:0 auto;
+	text-align: center;
+}
+.content h1{
+	font-family:'Raleway',sans-serif;
+	color:#F9F3F4;
+	text-shadow:0px 0px 300px #000;
+	font-size:500%;
+}
+.btn{
+	border-radius: 9px;
+	font-family: 'Oswald',sans-serif;
+	color:#036A81;
+	font-size: 135%;
+	padding: 10px 20px;
+	border:solid #036A81 3px;
+	text-transform: uppercase;
+	decoration:none;
+}
+.btn:hover{
+    color:#fff;
+    border:solid #fff 3px;
+}
+p{
+	text-align: justify;
+	margin-top:80px;
+	width:900px;
+	margin:30px auto;
+	font-size:20px;
+	line-height: 30px;
+}
+
+nav {
+	position:fixed;
+      width: 100%;
+      line-height: 500px;
+}
+
+nav #navbar {
+      line-height: 45px;
+      list-style: none;
+      overflow: hidden;
+      color: #fff;
+      text-align: right;
+      margin: 0px;
+      padding-right: 40px;
+      background: #000;
+      height: 100px;
+}
+
+nav ul li {
+      display: inline-block;
+      padding: 0px;
+      
+}
+
+nav ul li a{
+      text-decoration: none;
+      line-height: 80px;
+      margin-bottom: 40px;
+      color:#fff;
+      font-size: 16px;
+      padding:12px 20px;
+      text-transform: uppercase;
+      font-family: montserrat;
+      height: 200px;
+      
+}
+nav div, ul li a:hover{
+	color:#f80058;
+
+}
+#imaginea_de_la_paragrafe {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+}
+.land2 h2{
+	text-align: justify;
+	width:900px;
+	margin:30px auto;
+	line-height: 30px;
+	font-family: montserrat;
+	text-transform: uppercase;
+}
+#masaj{
+	font-family: montserrat;
+	font-size:25px;
+	color:#f80058;
+	font-weight: bolder;
+
+}
+
+#bar{
+	height: 150px;
+    background-color: #1459c9;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+#lista_1{
+	float:left;
+	color:white;
+	font-family: lato;
+
+}
+#lista_2 li{
+	float:right;
+    display: inline;
+
+}
+#blog{
+     font-family: montserrat;
+     font-weight: bolder;
+     font-size: 25px;
+     padding:0;
+     margin-bottom:0;
+     margin-left: 175px;
+
+}
+#subscriber{
+    margin-left: 175px;
+}
+#email{
+	color:white;
+	border-radius:50px 50px 50px 0px;
+	padding: 10px 10px;
+	text-align: left;
+	background-color: #1459c9;
+	border:2px solid white;
+	margin-top: 50px;
+	margin-right: 5px;
+}
+#submit{
+   color:#1459c9;
+   background-color: white;
+   border-radius:50px 50px 0px 50px;
+   border:1px solid white;
+   padding: 10px 10px;
+   font-family: lato;
+   letter-spacing: 2px;
+   font-weight: bolder;
+   margin-right: 150px;
+   margin-top: 50px;
+   margin-left: 5px;
+
+}
+
+#email::placeholder{
+    color:white;
+}
+#submit:hover{
+	text-decoration: underline;
+}
+
+#copyright{
+	float:left; 
+	text-align: justify;
+	margin-left:50px;
+}
+#copyright p{
+	max-width: 400px;
+}
+#copyright h2{
+	padding: 10px 20px;
+	background-color: #1459c9;
+	color:white;
+	border-radius:50px 50px 50px 50px;
+	max-width: 120px;
+}
+#footer_logo{
+	margin-left: 100px;
+	display:inline-block;
+}
+#footer_logo p >img{
+	margin-right: 20px;
+	color:#1459c9;
+}
+#footer_logo p{
+    max-width: 400px;
+}
+#imagini_footer{
+	border-radius: 50%;
+	height: auto; 
+    width: auto; 
+}
+
+#footer_contact{
+	float:right;
+	margin-right:60px;
+}
+#First_Name,#Last_Name,#company,#email_footer,#phone{
+	margin-top:20px;
+	padding-top:5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	border:none;
+	border-bottom:1px solid  #e1eaea;
+
+}
+#company,#email_footer,#phone{
+	width:350px;
+}
+#Last_Name{
+	margin-left: 20px;
+}
+#submit_footer{
+	font-size: 14px;
+	margin-top:20px;
+	padding: 10px 25px;
+	border-radius:50px 50px 0px 50px;
+	background-color:#1459c9;
+	font-family:montserrat;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	color:white;
+}
