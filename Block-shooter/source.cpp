@@ -1,17 +1,13 @@
-#include<windows.h>
+#include <windows.h>
 #include <gl/freeglut.h>
 #include <gl/glut.h>
 #include <iostream>
-#define MAX_BULLET_ON_SCREEN 8
-#define MAX_VELO_BULLET 5
-#define MAX_STONES 100
-#define MAX_POSITIONS 5
 using namespace std;
-
 
 int shoot = 0;
 int fall = 0;
 double i = 2.1;
+double j = 1.0;
 double viteza = 0.5;
 double *v = new double[300]; //vector pt bullet in care retin i-ul
 double *a = new double[300]; // vector pt asteroizi in care se da un i random
@@ -19,7 +15,7 @@ int k = 0;
 int c = 0;
 double *height = new double[300]; //vector pt asteroizi in care retin inaltimea
 double *inaltime = new double[300]; // vector pt bullet in care retin inaltimea de la care pleaca fiecare bullet
-double alpha = 1.0; 
+double alpha = 1.0;
 bool gameOver = false;
 
 void init(void)
@@ -50,8 +46,10 @@ void check()
 	for (int x = 1; x <= k; x++)
 		for (int y = 1; y <= c; y++)
 		{
-			if (a[y] <= v[x] && a[y] + 30 >= v[x] && inaltime[x] >= height[y])
+			if (a[y] <= v[x] && a[y] + 30 >= v[x] && inaltime[x] >= height[y]) {
 				remover(x, y);
+			}
+
 		}
 	for (int y = 1; y <= c; y++)
 	{
@@ -61,9 +59,9 @@ void check()
 }
 void reseter()
 {
-	 k = 0;
-	 c = 0;
-	 alpha = 1.0;
+	k = 0;
+	c = 0;
+	alpha = 1.0;
 	shoot = 0;
 	fall = 0;
 	i = 2.1;
@@ -75,7 +73,6 @@ void keyboard(int key, int x, int y) {
 		shoot = 1;
 		inaltime[k] = 220;
 		v[k] = i;
-
 		break;
 	case GLUT_KEY_DOWN:
 		c++;
@@ -95,18 +92,18 @@ void keyboard(int key, int x, int y) {
 }
 
 
-
 void deseneazaScena(void)
 {
+
 	glClear(GL_COLOR_BUFFER_BIT);
 	if (gameOver == false)
-	{// patratul
+	{	//miscarea rachetei
 		glPushMatrix();
 		glTranslated(i, 100.0, 0.0);
 		glPushMatrix();
-		glColor3f(1.0, 1.0, 0.0);
 
-		//racheta 
+		//desenare racheta 
+		glColor3f(0.137255, 0.419608, 0.556863);
 		glBegin(GL_POLYGON);
 
 		glVertex2i(10, 120);
@@ -116,27 +113,27 @@ void deseneazaScena(void)
 		glVertex2i(30, 40);
 		glVertex2i(20, 80);
 		glVertex2i(20, 110);
-
+		glColor3f(0.90, 0.91, 0.98);
+		glVertex2i(10, 120);
+		glVertex2i(0, 110);
+		glVertex2i(20, 110);
 		glEnd();
 
 		glPopMatrix();
 		glPopMatrix();
 
-
 		//bullet
 		if (shoot == 1) {
 			for (int l = 0; l <= k; l++) {
 				if (inaltime[l] < 620) {
-
-					//cout << l << " " << inaltime[l] << endl;
+					// urcare bullet
 					glPushMatrix();
-
 					glTranslated(v[l], inaltime[l], 0.0);
 					glPushMatrix();
+					// desenare bullet
 					glRotated(viteza, 0.0, 0.0, 1.0);
-					glColor3f(0.0, 1.0, 0.0);
-
-					glRecti(0.0, 0.0, 10.0, 10.0);
+					glColor3f(0.0, 0.5, 0.0);
+					glRecti(0.0, 0.0, 10, 10);
 
 					glPopMatrix();
 					glPopMatrix();
@@ -149,17 +146,17 @@ void deseneazaScena(void)
 			viteza += 0.4;
 
 		}
+
+		// asteroizi
 		if (fall == 1) {
 			for (int g = 0; g <= c; g++) {
 				if (height[g] > 150) {
-					//cout << g << " " << height[g] << endl;
+					//caderea
 					glPushMatrix();
-
 					glTranslated(a[g], height[g], 0.0);
-				
-					glColor3f(1.0, 0.0, 0.0);
-					glRecti(0.0, 0.0, 30.0, 30.0);
-
+					// desenarea
+					glColor3f(0.435294, 0.258824, 0.258824);
+					glRecti(0.0, 0.0, 30, 30);
 					glPopMatrix();
 				}
 			}
@@ -176,6 +173,7 @@ void deseneazaScena(void)
 	else
 	{
 		glColor3f(1.0, 1.0, 1.0);
+		// GAME OVER
 		glRasterPos2f(380, 200);
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'G');
 		glRasterPos2f(394, 200);
@@ -190,13 +188,44 @@ void deseneazaScena(void)
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'V');
 		glRasterPos2f(478, 200);
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'E');
-		glRasterPos2f(492, 200);
+		glRasterPos2f(490, 200);
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'R');
+
+		// KEY LEFT-RESTART
+		glRasterPos2f(380, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'K');
+		glRasterPos2f(392, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'E');
+		glRasterPos2f(404, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'Y');
+		glRasterPos2f(420, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'L');
+		glRasterPos2f(432, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'E');
+		glRasterPos2f(444, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'F');
+		glRasterPos2f(456, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'T');
+		glRasterPos2f(465, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, '-');
+		glRasterPos2f(475, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'R');
+		glRasterPos2f(488, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'E');
+		glRasterPos2f(501, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'S');
+		glRasterPos2f(514, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'T');
+		glRasterPos2f(527, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'A');
+		glRasterPos2f(540, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'R');
+		glRasterPos2f(553, 180);
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, 'T');
 	}
 	glutSwapBuffers();
 	glFlush();
 }
-
 
 void reshape(int w, int h)
 {
@@ -208,7 +237,6 @@ void reshape(int w, int h)
 	glLoadIdentity();
 }
 
-
 void miscad(void)
 {
 	i = i + alpha;
@@ -216,6 +244,7 @@ void miscad(void)
 		alpha = -1.0;
 	else if (i < 0.0)
 		alpha = 1.0;
+	//j = j + 5.0;
 
 	glutPostRedisplay();
 }
@@ -227,7 +256,7 @@ void miscas(void)
 		alpha = 1.0;
 	else if (i > 750.0)
 		alpha = -1.0;
-
+	//j = j + 5.0;
 
 	glutPostRedisplay();
 }
