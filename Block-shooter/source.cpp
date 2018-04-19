@@ -49,12 +49,16 @@ void check()
 			if (a[y] <= v[x] && a[y] + 30 >= v[x] && inaltime[x] >= height[y]) {
 				remover(x, y);
 			}
-
+			
 		}
 	for (int y = 1; y <= c; y++)
 	{
-		if (i - a[y] > -30 && i - a[y] < 20 && height[y] >= 140 && height[y] <= 220)
+		if (i - a[y] > -30 && i - a[y] < 20 && height[y] >= 140 && height[y] <= 220) {
+
 			gameOver = true;
+			PlaySound("finish.wav", NULL, SND_ASYNC | SND_FILENAME);
+		}
+
 	}
 }
 void reseter()
@@ -73,12 +77,14 @@ void keyboard(int key, int x, int y) {
 		shoot = 1;
 		inaltime[k] = 220;
 		v[k] = i;
+		PlaySound("shot.wav", NULL, SND_ASYNC | SND_FILENAME );
 		break;
 	case GLUT_KEY_DOWN:
 		c++;
 		fall = 1;
 		height[c] = 500;
 		a[c] = rand() % 700 + 50;
+		PlaySound("meteor.wav", NULL, SND_ASYNC | SND_FILENAME);
 		break;
 	case GLUT_KEY_LEFT:
 		if (gameOver == true)
@@ -91,10 +97,57 @@ void keyboard(int key, int x, int y) {
 	}
 }
 
+void racheta() {
+	
+	//glColor3f(0.137255, 0.419608, 0.556863);
+	glColor3f(0.184314, 0.309804, 0.309804);
+	glBegin(GL_POLYGON);
+	glVertex2i(10, 120);
+	glVertex2i(0, 110);
+	glVertex2i(0, 80);
+	glVertex2i(-10, 40);
+	glVertex2i(30, 40);
+	glVertex2i(20, 80);
+	glVertex2i(20, 110);
+
+	glColor3f(0.90, 0.91, 0.98);
+	glVertex2i(10, 120);
+	glVertex2i(0, 110);
+	glVertex2i(20, 110);
+	glEnd();
+	//aripa stanga
+	glColor3f(0.90, 0.91, 0.98);
+	glBegin(GL_POLYGON);
+	glVertex2i(0, 80);
+	glVertex2i(-10, 40);
+	glVertex2i(0, 40);
+	glEnd();
+	//aripa dreapta
+	glColor3f(0.90, 0.91, 0.98);
+	glBegin(GL_POLYGON);
+	glVertex2i(20, 40);
+	glVertex2i(30, 40);
+	glVertex2i(20, 80);
+	glEnd();
+	//foc stanga
+	glColor3f(0.81, 0.71, 0.23);
+	glBegin(GL_POLYGON);
+	glVertex2i(10, 40);
+	glVertex2i(5, 35);
+	glVertex2i(0, 40);
+	glEnd();
+	//foc dreapta
+	glColor3f(0.81 , 0.71 , 0.23);
+	glBegin(GL_POLYGON);
+	glVertex2i(20, 40);
+	glVertex2i(15, 35);
+	glVertex2i(10, 40);
+	glEnd();
+	
+}
 
 void deseneazaScena(void)
 {
-
 	glClear(GL_COLOR_BUFFER_BIT);
 	if (gameOver == false)
 	{	//miscarea rachetei
@@ -103,21 +156,7 @@ void deseneazaScena(void)
 		glPushMatrix();
 
 		//desenare racheta 
-		glColor3f(0.137255, 0.419608, 0.556863);
-		glBegin(GL_POLYGON);
-
-		glVertex2i(10, 120);
-		glVertex2i(0, 110);
-		glVertex2i(0, 80);
-		glVertex2i(-10, 40);
-		glVertex2i(30, 40);
-		glVertex2i(20, 80);
-		glVertex2i(20, 110);
-		glColor3f(0.90, 0.91, 0.98);
-		glVertex2i(10, 120);
-		glVertex2i(0, 110);
-		glVertex2i(20, 110);
-		glEnd();
+		racheta();
 
 		glPopMatrix();
 		glPopMatrix();
@@ -155,7 +194,7 @@ void deseneazaScena(void)
 					glPushMatrix();
 					glTranslated(a[g], height[g], 0.0);
 					// desenarea
-					glColor3f(0.435294, 0.258824, 0.258824);
+					glColor3f(0.435294 , 0.258824 , 0.258824);
 					glRecti(0.0, 0.0, 30, 30);
 					glPopMatrix();
 				}
@@ -166,7 +205,7 @@ void deseneazaScena(void)
 
 			viteza += 0.1;
 		}
-
+		
 		check();
 		Sleep(5);
 	}
