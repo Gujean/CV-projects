@@ -1,0 +1,48 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+            <title>Travel Login</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="style-login.css">
+            <script  src="Scripts/j1.js"></script>
+    </head>
+    <body onload="myLoad()">
+        <div class="wrapper">
+            <header>
+                    <nav style="z-index: 1;">
+                        <div onclick="men()" class="menu-icon">
+                            <i class="fa fa-bars fa-2x"></i>
+                        </div>
+                        <div class="logo">
+                            LOGO
+                        </div>
+                        <div class="menu">
+                            <ul class="navbar">
+                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="Update.html">Update/Delete</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="Locations.html">Locations</a></li>     
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="form-container" style="z-index: 0;">
+                        <h1>Login</h1>
+                        <form  method="get">
+                                <div class="textbox">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <input type="text" name="user" placeholder="Username">
+                                </div>
+                                <div class="textbox">
+                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                    <input type="password" name="pass" placeholder="Password">
+                                </div>
+                                <input class="btn" type="button"  onclick="login()" value="Sign in">
+                        </form>
+    
+                    </div>     
+                </header>
+         </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <title>Locations</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style-locations.css">
+        <script  src="Scripts/j1.js"></script>
+    </head>
+    <body onload="loadAll()">
+        <div>
+                <nav>
+                        <div onclick="men()" class="menu-icon">
+                            <i class="fa fa-bars fa-2x"></i>
+                        </div>
+                        <div class="logo">
+                            LOGO
+                        </div>
+                        <div class="menu">
+                            <ul class="navbar">
+                                <li><a href="index.html" class="active">Home</a></li>
+                                <li><a href="Update.html">Update/Delete</a></li>
+                                <li><a href="Locations.html">Locations</a></li>     
+                                <li><a href="#" onclick="switch_tableform()">AddLocations</a></li>
+                            </ul>
+                        </div>
+                </nav>
+                <div id="table" class="show">
+                    <table class="table-container">
+                        <thead>
+                            <tr>
+                                <th class="table-head-column">Continent</th>
+                                <th class="table-head-column">Country</th>
+                                <th class="table-head-column">City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div id="form" class="hide">
+                    <form  method="post">
+                        <input type="text" name="Continent" placeholder="Continent" required>
+                        <input type="text" name="Country" placeholder="Country" required>
+                        <input type="text" name="City" placeholder="City" required>
+                        <button type="button" onclick="addLocations()">Add Location</button>
+                        <a href="#" onclick="cancel_switch()">Cancel</a>
+                    </form>
+                </div>
+
+
+
+        </div>
+
+    </body>
+</html>

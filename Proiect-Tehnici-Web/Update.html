@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="Scripts/j1.js"></script>
+        <link rel="stylesheet" href="style-update.css">
+    </head>
+    <body onload="myLoad()">
+        <form id="search_form" class="show" action="">
+            <input type="text" name="search_id" required>
+            <input type="button" onclick="search()" value="Search ID">
+            <a href="index.html">Cancel</a>
+        </form>
+        <div id="submit_form" class="hide">
+            <input type="text" name="id">
+            <input type="text" name="user">
+            <input type="password" name="pass">
+            <input type="email" name="email">
+            <input type="tel" name="tel">
+            <button type="button" onclick="update()">Update</button>
+            <button type="button" onclick="del()">Delete</button>
+            <a href="index.html">Cancel</a>   
+        </div>
+    </body>
+</html>

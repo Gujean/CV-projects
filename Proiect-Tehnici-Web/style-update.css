@@ -1,0 +1,62 @@
+.show{
+    visibility: visible;
+}
+
+.hide{
+    visibility: hidden;
+}
+#search_form{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%); 
+    height: 200px;   
+}
+
+#submit_form{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+#submit_form input{
+    display: inline-block;
+}
+@media(max-width: 768px){
+    #search_form{
+        height: 30px;
+        font-size: 16px;
+    }
+    #submit_form input{
+        height: 30px;
+        font-size: 16px;
+    }
+}
+@media (max-width: 1280px){
+    nav ul li{
+        padding: 11px;
+    }
+    #search_form{
+        height: 40px;
+        font-size: 18px;
+    }
+    #submit_form input{
+        height: 40px;
+        font-size: 18px;
+    }
+}
+@media (max-width: 4096px){
+    nav ul li{
+        padding: 18px;
+    }
+    #search_form{
+        height: 50px;
+        font-size: 20px;
+    }
+    #submit_form input{
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+}

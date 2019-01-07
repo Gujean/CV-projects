@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Gugi",
+      "email": "gugi@safsa.com",
+      "password": "12345",
+      "phone": "0124124515",
+      "locations": [
+        {
+          "Continent": "Europa",
+          "Country": "Romania",
+          "City": "Bucuresti"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Tofq",
+      "password": "12345",
+      "email": "tofifi2yahoo.com",
+      "phone": "1234568",
+      "locations": [
+        {
+          "Continent": "Europa",
+          "Country": "Romania",
+          "City": "Bucuresti"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "San",
+      "email": "san@safsa.com",
+      "password": "12345",
+      "phone": "0124124515",
+      "locations": [
+        {
+          "Continent": "North America",
+          "Country": "America",
+          "City": "newYork"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "gra",
+      "email": "gru@yahoo.com",
+      "password": "12345",
+      "phone": "123",
+      "locations": []
+    },
+    {
+      "id": 5,
+      "name": "ionut",
+      "email": "ion@asdasf",
+      "password": "12345",
+      "phone": "4567",
+      "locations": []
+    }
+  ]
+}
